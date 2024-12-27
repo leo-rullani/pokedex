@@ -1,267 +1,213 @@
-/* Stile für Pokémon-Karten */
 .pokemon-card {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
-    font-weight: 500;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 5px 0;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 5px 0;
 }
 
 .pokemon-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-card img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
 }
 
 .highlight {
-    border: 5px solid #212529; /* Farbe für die Umrandung */
-    border-radius: 10px; /* Abgerundete Ecken */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Schatteneffekt */
+  border: 5px solid #212529;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes highlight-animation {
-    0% {
-        box-shadow: 0 0 10px 5px #212529;
-    }
-    100% {
-        box-shadow: none;
-    }
-}
-
-/* Overlay Hintergrund */
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Overlay Inhalt */
 .overlay-content {
-    width: 60%;
-    height: 70%;
-    border: 5px solid #212529; /* Umrandung */
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  width: 60%;
+  height: 70%;
+  border: 5px solid #212529;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
-/* Pokémon-Anzeige (2/5) */
 .pokemon-display {
-    flex: 2;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 3px solid #212529;
-    background-size: cover; /* Skaliert das Bild */
-    background-position: center; /* Zentriert das Bild */
-    background-repeat: no-repeat; /* Verhindert Wiederholung */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid #212529;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Hintergrund des Pokémon */
-/* Hintergrundbereich */
-.pokemon-background {
-    width: 100%; /* Ganze Breite des Containers */
-    height: 100%; /* Ganze Höhe des Containers */
-    background-size: cover; /* Skaliert das Bild */
-    background-position: center; /* Zentriert das Bild */
-    background-repeat: no-repeat; /* Verhindert Wiederholung */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Pokémon-Bild */
 .pokemon-image {
-    z-index: 1; /* Pokémon-Bild liegt über dem Hintergrund */
-    width: 300px; /* Feste Breite für das Bild */
-    height: auto; /* Automatische Höhe */
-    object-fit: contain; /* Verhindert Verzerrung */
-    transition: transform 0.3s ease; /* Animation beim Hover */
+  z-index: 1;
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
 .pokemon-image:hover {
-    transform: scale(1.1); /* Bild leicht vergrößern beim Hover */
+  transform: scale(1.1);
 }
 
-/* Pokémon-Details (3/5) */
 .pokemon-info {
-    position: relative;
-    flex: 3;
-    padding: 20px;
-    background-color: #F8F9FA;
+  position: relative;
+  flex: 3;
+  padding: 20px;
+  background-color: #F8F9FA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* Schließen-Button */
 .close-button {
-    top: 10px;
-    right: 10px;
-    background-color: #E04D59;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  top: 10px;
+  right: 10px;
+  background-color: #E04D59;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .close-button:hover {
-    background-color: #BE414C;
+  background-color: #BE414C;
 }
 
-/* Container für die Pokémon-Info-Box */
-.pokemon-info {
-    flex: 3;
-    padding: 20px;
-    background-color: #F8F9FA;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Zentriert den Inhalt horizontal */
-    text-align: center; /* Zentriert den Text */
-}
-
-/* Pokémon-Name */
-.pokemon-info h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #E04D59;
-    margin-bottom: 20px; /* Abstand zu den Buttons */
-}
-
-/* Container für die Buttons */
 .category-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Abstand zwischen den Buttons */
-    margin-bottom: 20px; /* Abstand nach unten */
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-/* Styling für die Buttons */
 .category-button {
-    background-color: #E04D59; /* Button-Farbe */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+  background-color: #E04D59;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .category-button:hover {
-    background-color: #BE414C; /* Button-Farbe beim Hover */
+  background-color: #BE414C;
 }
 
-/* Container für die Kategorien */
 .category-content {
-    width: 100%;
-    max-width: 500px; /* Maximalbreite für die Inhalte */
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #FFF;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #FFF;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.hidden {
-    display: none;
-}
-
-/* Kategorie-Buttons */
-.category-button {
-    border-radius: 5px;
-    padding: 5px 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-    border: 2px solid; /* Rahmen dynamisch über JS */
-}
-
-/* Hover-Effekt */
-.category-button:hover {
-    opacity: 0.8; /* Leicht transparent beim Hover */
-}
-
-/* Stat-Bars */
-/* Inhalt der Kategorien */
 .content-section {
-    display: none; /* Standardmäßig unsichtbar */
-    margin-top: 20px;
+  display: none;
+  margin-top: 20px;
 }
 
-/* Stat-Bars */
 .stat-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 5px 0;
-    padding: 5px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    height: 20px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    font-size: 0.9rem;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding-left: 10px;
 }
 
 .stat-bar::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: var(--stat-value);
-    background-color: var(--stat-color);
-    z-index: 0;
-    border-radius: 5px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--stat-value);
+  background-color: var(--stat-color);
+  z-index: 0;
+  border-radius: 5px;
 }
 
-/* Evolution Chain */
+.stat-bar > span {
+  position: relative;
+  z-index: 1;
+}
+
+.stat-name {
+  flex: 1;
+}
+
+.stat-value {
+  margin-left: auto;
+  padding-right: 10px;
+}
+
+.stat-bar span {
+  position: relative;
+  z-index: 1;
+}
+
 .evo-images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .evo-stage img {
-    width: 80px;
-    height: 80px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .evo-stage.current img {
-    border-color: #1A8755; /* Beispiel für aktuelles Pokémon */
-    transform: scale(1.1);
+  border-color: #1A8755;
+  transform: scale(1.1);
 }
