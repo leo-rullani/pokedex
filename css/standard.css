@@ -1,0 +1,84 @@
+/* Basisstile für die gesamte Seite */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
+  background-color: #F8F9FA;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+  color: white;
+}
+
+h2 {
+  margin: 10px 0;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+/* Allgemeines Styling für Pokémon-Karten */
+.pokemon-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+/* Schriftfarbe und Buttons basierend auf Typ */
+/* Allgemeines Styling für Pokémon-Karten */
+.pokemon-card {
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: #f8f8f8;
+}
+
+/* Schriftfarbe des Pokémon-Namens basierend auf Typ */
+.type-plant .pokemon-name {
+  color: #f8f8f8; /* Grün für Pflanze */
+}
+
+.type-water .pokemon-name {
+  color: #f8f8f8; /* Blau für Wasser */
+}
+
+.type-fire .pokemon-name {
+  color: #f8f8f8; /* Rot für Feuer */
+}
+
+.type-electric .pokemon-name {
+  color: #f8f8f8; /* Gelb für Elektrizität */
+}
+
+.type-rock .pokemon-name {
+  color: #f8f8f8; /* Grau für Gestein */
+}
+
+/* Buttons für Kategorien */
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.category-button {
+  background-color: transparent; /* Keine Hintergrundfarbe */
+  border: 2px solid currentColor; /* Rahmen in der Schriftfarbe */
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-button:hover {
+  background-color: currentColor; /* Hintergrundfarbe entspricht der Schriftfarbe */
+  color: white; /* Schriftfarbe invertiert */
+}

@@ -1,0 +1,139 @@
+/* Allgemeines Layout */
+.header-container {
+    background-color: #212529; /* Dunkelgrauer Hintergrund */
+    padding: 10px 20px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #212529;
+}
+
+.pokemon-title {
+    height: 50px; /* Höhe des Logos */
+}
+
+.header-title {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #F8F9FA; /* Hellgrauer Hintergrund */
+    color: #34383C;
+    outline: none;
+    width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+.pokedex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pokemon-category {
+    margin-bottom: 30px;
+}
+
+.pokemon-category h2 {
+    margin: 0 10px;
+    font-size: 1.5rem;
+/* Allgemeine Einstellungen für die Pokémon-Kategorien */
+}
+
+/* Kartenzeilen */
+.pokemon-row {
+    display: flex; /* Elemente horizontal anordnen */
+    gap: 20px; /* Abstand zwischen den Karten */
+    justify-content: center;
+}
+
+/* Karten-Design */
+.pokemon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pokemon-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-card img {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 24px;
+}
+
+/* Typ-Farben */
+.type-plant {
+    background-color: #1A8755; /* Grün für Pflanze */
+}
+
+.type-water {
+    background-color: #0D6EFD; /* Blau für Wasser */
+}
+
+.type-fire {
+    background-color: #E04D59; /* Orange für Feuer */
+}
+
+.type-electric {
+    background-color: #FFC105; /* Gelb für Elektrizität */
+}
+
+.type-rock {
+    background-color: #6C757D; /* Braun für Gestein */
+}
+
+.footer-container {
+    background-color: #D3D4D5; /* 30% heller als #212529 */
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    color: #212529;
+    font-size: 1rem;
+    font-weight: bold;
+}
