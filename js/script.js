@@ -217,9 +217,13 @@ function init() {
   document.getElementById('load-more-button').addEventListener('click', loadMorePokemon);
 }
 
-// Funktion zum Rendern von Pokémon-Karten
 function renderPokemonCards(pokemonArray) {
-  const container = document.querySelector('.pokemon-container');
+  const container = document.querySelector('#pokemon-container .pokemon-row'); // Korrigierter Selektor
+  if (!container) {
+    console.error("Container '#pokemon-container .pokemon-row' nicht gefunden.");
+    return;
+  }
+  console.log(`Appending ${pokemonArray.length} Pokémon-Karten zum Container.`);
   pokemonArray.forEach(pokemon => {
     const card = createPokemonCard(pokemon);
     container.appendChild(card);

@@ -1,4 +1,5 @@
 const pokemonNameMap = {
+  // Bestehende Zuordnungen
   Bisasam: "bulbasaur",
   Endivie: "chikorita",
   Knofensa: "bellsprout",
@@ -19,7 +20,106 @@ const pokemonNameMap = {
   Kabuto: "kabuto",
   Digda: "diglett",
   Onyx: "onix",
+
+  // Neue Zuordnungen aus deiner aktuellen `pokemonList`
+  Evoli: "eevee",
+  Pummeluff: "jigglypuff",
+  Abra: "abra",
+  Machollo: "machop",
+  Tentacha: "tentacool",
+  Rettan: "gastly",
+  Piepi: "clefairy",
+  Zubat: "zubat",
+  Smettbo: "scyther",
+  Rattfratz: "rattata",
+  Simsala: "alakazam",
+  Ponita: "ponyta",
+  Kleiner: "meowth",
+  Schnappi: "totodile",
+  Flamara: "flareon",
+  Falkner: "fearow",
+  Machomei: "machamp",
+  Knogga: "rhydon",
+  Mauzi: "persian",
+  Rattikarl: "raticate",
+  Skarmory: "skarmory",
+  Schorpio: "scizor",
+  Tauros: "tauros",
+  Venusaure: "venusaur",
+  Glurak: "charizard",
+  Aquana: "vaporeon",
+  Magnezone: "magnezone",
+  Geowaz: "graveler",
+  Rotom: "rotom",
+  Gallopa: "rapidash",
+  Gengar: "gengar",
+  Arbok: "arbok",
+  Tentoxa: "tentacruel",
+  Lapras: "lapras",
 };
+
+function getBackgroundColor(type) {
+  const colors = {
+    "plant": "#1A8755",
+    "water": "#0D6EFD",
+    "fire": "#E04D59",
+    "electric": "#FFC105",
+    "rock": "#6C757D",
+    "dark": "#4F4F4F",
+    "ghost": "#7B62A3",
+    "steel": "#5A5A5A",
+    "fighting": "#D3425F",
+    "poison": "#A33EA1",
+    "psychic": "#F95587",
+    "fairy": "#EC8FE6",
+    "bug": "#A6B91A",
+    "flying": "#A98FF3",
+    "normal": "#A8A77A",
+    "ice": "#61CEC0",
+    "dragon": "#0F6AC0",
+    "ground": "#DA7C32",
+    // Weitere Typen hinzufügen, falls benötigt
+  };
+  return colors[type] || "#FFFFFF"; // Standardfarbe weiß
+}
+  
+  const pokemonList = [
+  // Zusätzliche 34 Pokémon (bereinigt)
+  { name: "Evoli", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png", type: "normal" },
+  { name: "Pummeluff", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png", type: "fairy" },
+  { name: "Abra", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png", type: "psychic" },
+  { name: "Machollo", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png", type: "fighting" },
+  { name: "Tentacha", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png", type: "poison" },
+  { name: "Rettan", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png", type: "ghost" },
+  { name: "Piepi", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png", type: "fairy" },
+  { name: "Zubat", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png", type: "poison" },
+  { name: "Smettbo", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png", type: "bug" },
+  { name: "Rattfratz", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png", type: "normal" },
+  { name: "Simsala", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png", type: "psychic" },
+  { name: "Ponita", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png", type: "fire" },
+  { name: "Kleiner", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png", type: "normal" },
+  { name: "Schnappi", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/158.png", type: "water" }, // Annahme: Totodile
+  { name: "Flamara", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png", type: "fire" }, // Flareon
+  { name: "Falkner", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png", type: "flying" }, // Annahme: Fearow
+  { name: "Machomei", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png", type: "fighting" }, // Machamp
+  { name: "Knogga", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png", type: "rock" }, // Rhydon
+  { name: "Mauzi", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png", type: "normal" }, // Persian
+  { name: "Rattikarl", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png", type: "normal" }, // Raticate
+  { name: "Skarmory", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/227.png", type: "steel" },
+  { name: "Schorpio", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/212.png", type: "poison" }, // Scizor
+  { name: "Tauros", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png", type: "normal" },
+  { name: "Venusaure", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png", type: "plant" }, // Venusaur
+  { name: "Glurak", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png", type: "fire" }, // Charizard
+  { name: "Aquana", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png", type: "water" }, // Vaporeon
+  { name: "Magnezone", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/462.png", type: "electric" },
+  { name: "Geowaz", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png", type: "rock" }, // Graveler
+  { name: "Rotom", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/479.png", type: "electric" },
+  { name: "Gallopa", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png", type: "flying" }, // Rapidash
+  { name: "Gengar", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png", type: "ghost" },
+  { name: "Arbok", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/24.png", type: "poison" },
+  { name: "Tentoxa", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png", type: "poison" }, // Tentacruel
+  { name: "Lapras", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png", type: "water" },
+];
 
 async function fetchPokemonData(nameOrId) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${nameOrId}`);
@@ -80,68 +180,3 @@ async function fillEvoChainSection(evoChainData) {
 
   chainContainer.innerHTML = html;
 }
-
-const pokemonList = [
-  // Erste 20 Pokémon
-  { name: "Bisasam", img: "/img/bisasam.png", type: "plant" },
-  { name: "Endivie", img: "/img/endivie.png", type: "plant" },
-  { name: "Knofensa", img: "/img/knofensa.png", type: "plant" },
-  { name: "Kokowei", img: "/img/kokowei.png", type: "plant" },
-  { name: "Schiggy", img: "/img/schiggy.png", type: "water" },
-  { name: "Krabby", img: "/img/krabby.png", type: "water" },
-  { name: "Enton", img: "/img/enton.png", type: "water" },
-  { name: "Sterndu", img: "/img/sterndu.png", type: "water" },
-  { name: "Glumanda", img: "/img/glumanda.png", type: "fire" },
-  { name: "Vulpix", img: "/img/vulpix.png", type: "fire" },
-  { name: "Fukano", img: "/img/fukano.png", type: "fire" },
-  { name: "Hunduster", img: "/img/hunduster.png", type: "fire" },
-  { name: "Pikachu", img: "/img/pikachu.png", type: "electric" },
-  { name: "Blitza", img: "/img/blitza.png", type: "electric" },
-  { name: "Magnetilo", img: "/img/magnetilo.png", type: "electric" },
-  { name: "Voltobal", img: "/img/voltobal.png", type: "electric" },
-  { name: "Kleinstein", img: "/img/kleinstein.png", type: "rock" },
-  { name: "Kabuto", img: "/img/kabuto.png", type: "rock" },
-  { name: "Digda", img: "/img/digda.png", type: "rock" },
-  { name: "Onyx", img: "/img/onyx.png", type: "rock" },
-  { name: "Evoli", img: "/img/evoli.png", type: "normal" },
-  { name: "Pummeluff", img: "/img/pummeluff.png", type: "fairy" },
-  { name: "Abra", img: "/img/abra.png", type: "psychic" },
-  { name: "Machollo", img: "/img/machollo.png", type: "fighting" },
-  { name: "Tentacha", img: "/img/tentacha.png", type: "poison" },
-  { name: "Rettan", img: "/img/rettan.png", type: "ghost" },
-  { name: "Piepi", img: "/img/piepi.png", type: "fairy" },
-  { name: "Zubat", img: "/img/zubat.png", type: "poison" },
-  { name: "Smettbo", img: "/img/smettbo.png", type: "bug" },
-  { name: "Rattfratz", img: "/img/rattfratz.png", type: "normal" },
-  { name: "Simsala", img: "/img/simsala.png", type: "psychic" },
-  { name: "Ponita", img: "/img/ponita.png", type: "fire" },
-  { name: "Glutexo", img: "/img/glutexo.png", type: "fire" },
-  { name: "Gastly", img: "/img/gastly.png", type: "ghost" },
-  { name: "Porygon", img: "/img/porygon.png", type: "normal" },
-  { name: "Vulpix", img: "/img/vulpix.png", type: "fire" },
-  { name: "Kleiner", img: "/img/kleiner.png", type: "normal" },
-  { name: "Psyduck", img: "/img/psyduck.png", type: "water" },
-  { name: "Schnappi", img: "/img/schnappi.png", type: "water" },
-  { name: "Flamara", img: "/img/flamara.png", type: "fire" },
-  { name: "Falkner", img: "/img/falkner.png", type: "flying" },
-  { name: "Machomei", img: "/img/machomei.png", type: "fighting" },
-  { name: "Knogga", img: "/img/knogga.png", type: "rock" },
-  { name: "Mauzi", img: "/img/mauzi.png", type: "normal" },
-  { name: "Rattikarl", img: "/img/rattikarl.png", type: "normal" },
-  { name: "Flegmon", img: "/img/flegmon.png", type: "water" },
-  { name: "Skarmory", img: "/img/skarmory.png", type: "steel" },
-  { name: "Schorpio", img: "/img/schorpio.png", type: "poison" },
-  { name: "Tauros", img: "/img/tauros.png", type: "normal" },
-  { name: "Venusaure", img: "/img/venusaure.png", type: "plant" },
-  { name: "Glurak", img: "/img/glurak.png", type: "fire" },
-  { name: "Blitza", img: "/img/blitza.png", type: "electric" },
-  { name: "Aquana", img: "/img/aquana.png", type: "water" },
-  { name: "Magnezone", img: "/img/magnezone.png", type: "electric" },
-  { name: "Geowaz", img: "/img/geowaz.png", type: "rock" },
-  { name: "Rotom", img: "/img/rotom.png", type: "electric" },
-  { name: "Gallopa", img: "/img/gallopa.png", type: "flying" },
-  { name: "Gengar", img: "/img/gengar.png", type: "ghost" },
-  { name: "Arbok", img: "/img/arbok.png", type: "poison" },
-  { name: "Tentoxa", img: "/img/tentoxa.png", type: "poison" },
-  { name: "Lapras", img: "/img/lapras.png", type: "water" },
-];

@@ -24,116 +24,136 @@
             <input class="search-input" type="text" placeholder="Search..." maxlength="3" onkeyup="searchPokemon()">
         </div>
     </header>
-    <div id="pokemon-container" class="pokedex-container">
-
-        <div class="pokemon-row">
-            <div class="pokemon-row">
-                <div class="pokemon-card type-plant" data-pokemon="Bisasam" onclick="showPokemonOverlay(this)">
-                    <img src="/img/bisasam.png" alt="Bisasam">
-                    <p class="pokemon-name">Bisasam</p>
-                </div>
+    <div id="pokemon-container" class="pokedex-container pokemon-row">
+        <div class="pokemon-row-plant">
+            <div class="pokemon-card type-plant" data-pokemon="Bisasam" onclick="showPokemonOverlay(this)">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+                    alt="Bisasam">
+                <p class="pokemon-name">Bisasam</p>
             </div>
-
             <div class="pokemon-card type-plant" data-pokemon="Endivie" onclick="showPokemonOverlay(this)">
-                <img src="/img/endivie.png" alt="Endivie">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png"
+                    alt="Endivie">
                 <p>Endivie</p>
             </div>
             <div class="pokemon-card type-plant" data-pokemon="Knofensa" onclick="showPokemonOverlay(this)">
-                <img src="/img/knofensa.png" alt="Knofensa">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png"
+                    alt="Knofensa">
                 <p>Knofensa</p>
             </div>
             <div class="pokemon-card type-plant" data-pokemon="Kokowei" onclick="showPokemonOverlay(this)">
-                <img src="/img/kokowei.png" alt="Kokowei">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/103.png"
+                    alt="Kokowei">
                 <p>Kokowei</p>
             </div>
-        </div>
-        <div class="pokemon-row">
-            <div class="pokemon-card type-water" data-pokemon="Schiggy" onclick="showPokemonOverlay(this)">
-                <img src="/img/schiggy.png" alt="Schiggy">
-                <p>Schiggy</p>
-            </div>
-            <div class="pokemon-card type-water" data-pokemon="Krabby" onclick="showPokemonOverlay(this)">
-                <img src="/img/krabby.png" alt="Krabby">
-                <p>Krabby</p>
-            </div>
-            <div class="pokemon-card type-water" data-pokemon="Enton" onclick="showPokemonOverlay(this)">
-                <img src="/img/enton.png" alt="Enton">
-                <p>Enton</p>
-            </div>
-            <div class="pokemon-card type-water" data-pokemon="Sterndu" onclick="showPokemonOverlay(this)">
-                <img src="/img/sterndu.png" alt="Sterndu">
-                <p>Sterndu</p>
-            </div>
-        </div>
-        <div class="pokemon-row">
-            <div class="pokemon-card type-fire" data-pokemon="Glumanda" onclick="showPokemonOverlay(this)">
-                <img src="/img/glumanda.png" alt="Glumanda">
-                <p>Glumanda</p>
-            </div>
-            <div class="pokemon-card type-fire" data-pokemon="Vulpix" onclick="showPokemonOverlay(this)">
-                <img src="/img/vulpix.png" alt="Vulpix">
-                <p>Vulpix</p>
-            </div>
-            <div class="pokemon-card type-fire" data-pokemon="Fukano" onclick="showPokemonOverlay(this)">
-                <img src="/img/fukano.png" alt="Fukano">
-                <p>Fukano</p>
-            </div>
-            <div class="pokemon-card type-fire" data-pokemon="Hunduster" onclick="showPokemonOverlay(this)">
-                <img src="/img/hunduster.png" alt="Hunduster">
-                <p>Hunduster</p>
-            </div>
-        </div>
-        <div class="pokemon-row">
-            <div class="pokemon-card type-electric" data-pokemon="Pikachu" onclick="showPokemonOverlay(this)">
-                <img src="/img/pikachu.png" alt="Pikachu">
-                <p>Pikachu</p>
-            </div>
-            <div class="pokemon-card type-electric" data-pokemon="Blitza" onclick="showPokemonOverlay(this)">
-                <img src="/img/blitza.png" alt="Blitza">
-                <p>Blitza</p>
-            </div>
-            <div class="pokemon-card type-electric" data-pokemon="Magnetilo" onclick="showPokemonOverlay(this)">
-                <img src="/img/magnetilo.png" alt="Magnetilo">
-                <p>Magnetilo</p>
-            </div>
-            <div class="pokemon-card type-electric" data-pokemon="Voltobal" onclick="showPokemonOverlay(this)">
-                <img src="/img/voltobal.png" alt="Voltobal">
-                <p>Voltobal</p>
-            </div>
-        </div>
-        <div class="pokemon-row">
-            <div class="pokemon-card type-rock" data-pokemon="Kleinstein" onclick="showPokemonOverlay(this)">
-                <img src="/img/kleinstein.png" alt="Kleinstein">
-                <p>Kleinstein</p>
-            </div>
-            <div class="pokemon-card type-rock" data-pokemon="Kabuto" onclick="showPokemonOverlay(this)">
-                <img src="/img/kabuto.png" alt="Kabuto">
-                <p>Kabuto</p>
-            </div>
-            <div class="pokemon-card type-rock" data-pokemon="Digda" onclick="showPokemonOverlay(this)">
-                <img src="/img/digda.png" alt="Digda">
-                <p>Digda</p>
-            </div>
-            <div class="pokemon-card type-rock" data-pokemon="Onyx" onclick="showPokemonOverlay(this)">
-                <img src="/img/onyx.png" alt="Onyx">
-                <p>Onyx</p>
-            </div>
-        </div>
-    </div>
-    <button id="load-more-button">Mehr Pokémon laden</button>
-    <div id="spinner" class="spinner" style="display: none;">
-        <img src="/img/spinner.png" alt="Laden...">
-    </div>
-    <footer class="footer-container">
-        <div class="footer-content">
-            <img src="/img/pokebal.png" alt="Pokeball" class="footer-logo">
-            <p class="footer-text">Pokemon Trainer - Leo Rullani</p>
-        </div>
-    </footer>
+            <div class="pokemon-row-water">
+                <div class="pokemon-card type-water" data-pokemon="Schiggy" onclick="showPokemonOverlay(this)">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+                        alt="Schiggy">
+                    <p>Schiggy</p>
+                </div>
+                <div class="pokemon-card type-water" data-pokemon="Krabby" onclick="showPokemonOverlay(this)">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png"
+                        alt="Krabby">
+                    <p>Krabby</p>
+                </div>
+                <div class="pokemon-card type-water" data-pokemon="Enton" onclick="showPokemonOverlay(this)">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png"
+                        alt="Enton">
+                    <p>Enton</p>
+                </div>
+                <div class="pokemon-card type-water" data-pokemon="Sterndu" onclick="showPokemonOverlay(this)">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png"
+                        alt="Sterndu">
+                    <p>Sterndu</p>
+                </div>
 
-    <script src="./js/api.js"></script>
-    <script src="./js/script.js"></script>
-    <script src="./js/functions.js"></script>
+                <div class="pokemon-row-fire">
+                    <div class="pokemon-card type-fire" data-pokemon="Glumanda" onclick="showPokemonOverlay(this)">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+                            alt="Glumanda">
+                        <p>Glumanda</p>
+                    </div>
+                    <div class="pokemon-card type-fire" data-pokemon="Vulpix" onclick="showPokemonOverlay(this)">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png"
+                            alt="Vulpix">
+                        <p>Vulpix</p>
+                    </div>
+                    <div class="pokemon-card type-fire" data-pokemon="Fukano" onclick="showPokemonOverlay(this)">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png"
+                            alt="Fukano">
+                        <p>Fukano</p>
+                    </div>
+                    <div class="pokemon-card type-fire" data-pokemon="Hunduster" onclick="showPokemonOverlay(this)">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/228.png"
+                            alt="Hunduster">
+                        <p>Hunduster</p>
+                    </div>
+                    <div class="pokemon-row-electric">
+                        <div class="pokemon-card type-electric" data-pokemon="Pikachu"
+                            onclick="showPokemonOverlay(this)">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+                                alt="Pikachu">
+                            <p>Pikachu</p>
+                        </div>
+                        <div class="pokemon-card type-electric" data-pokemon="Blitza"
+                            onclick="showPokemonOverlay(this)">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"
+                                alt="Blitza">
+                            <p>Blitza</p>
+                        </div>
+                        <div class="pokemon-card type-electric" data-pokemon="Magnetilo"
+                            onclick="showPokemonOverlay(this)">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png"
+                                alt="Magnetilo">
+                            <p>Magnetilo</p>
+                        </div>
+                        <div class="pokemon-card type-electric" data-pokemon="Voltobal"
+                            onclick="showPokemonOverlay(this)">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png"
+                                alt="Voltobal">
+                            <p>Voltobal</p>
+                        </div>
+                        <div class="pokemon-row-rock">
+                            <div class="pokemon-card type-rock" data-pokemon="Kleinstein"
+                                onclick="showPokemonOverlay(this)">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png"
+                                    alt="Kleinstein">
+                                <p>Kleinstein</p>
+                            </div>
+                            <div class="pokemon-card type-rock" data-pokemon="Kabuto"
+                                onclick="showPokemonOverlay(this)">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png"
+                                    alt="Kabuto">
+                                <p>Kabuto</p>
+                            </div>
+                            <div class="pokemon-card type-rock" data-pokemon="Digda" onclick="showPokemonOverlay(this)">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png"
+                                    alt="Digda">
+                                <p>Digda</p>
+                            </div>
+                            <div class="pokemon-card type-rock" data-pokemon="Onyx" onclick="showPokemonOverlay(this)">
+                                <img src="/img/onyx.png" alt="Onyx">
+                                <p>Onyx</p>
+                            </div>
+                            <div class="pokemon-row">
+                            </div>
+                            <button id="load-more-button">Mehr Pokémon laden</button>
+                            <div id="spinner" class="spinner-btn">
+                            </div>
+                        </div>
+                        <div>
+                            <footer class="footer-container">
+                                <div class="footer-content">
+                                    <img src="/img/pokebal.png" alt="Pokeball" class="footer-logo">
+                                    <p class="footer-text">Pokémon Scout – Leo Rullani</p>
+                                </div>
+                        </div>
+                        </footer>
+
+                        <script src="./js/api.js"></script>
+                        <script src="./js/script.js"></script>
+                        <script src="./js/functions.js"></script>
 
 </body>
 
