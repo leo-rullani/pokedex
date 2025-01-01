@@ -11,61 +11,107 @@ h1 {
   text-align: center;
   font-weight: bold;
   margin: 20px;
-  color: white;
+  color: #343a40; 
 }
 
 h2 {
   margin: 10px 0;
-  text-align: left;
+  text-align: center;
   font-size: 1.5rem;
+  color: #495057;
+}
+
+.pokemon-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 10px; 
+  justify-items: space-between; 
+  margin-bottom: 40px;
+  margin-top: 10px;
 }
 
 .pokemon-card {
-  text-align: center;
-  padding: 15px;
+  cursor: pointer;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   border-radius: 10px;
-  margin: 10px;
-  background-color: #f8f8f8;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f8f8f8; 
 }
 
-.type-plant .pokemon-name {
-  color: #f8f8f8;
+.pokemon-card img {
+  width: 120px; 
+  height: 120px;
+  object-fit: cover; 
 }
 
-.type-water .pokemon-name {
-  color: #f8f8f8;
+.pokemon-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-.type-fire .pokemon-name {
-  color: #f8f8f8;
+@media (max-width: 800px) {
+  .pokemon-row {
+    grid-template-columns: repeat(3, 1fr); 
+  }
 }
 
-.type-electric .pokemon-name {
-  color: #f8f8f8;
+@media (max-width: 500px) {
+  .pokemon-row {
+    grid-template-columns: repeat(2, 1fr); 
+  }
 }
 
-.type-rock .pokemon-name {
-  color: #f8f8f8;
+.pokemon-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #343a40;
+  margin: 0;
 }
 
 .category-buttons {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .category-button {
-  background-color: transparent;
-  border: 2px solid currentColor;
+  background-color: #495057;
+  color: white;
+  border: 2px solid #495057;
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 10px 20px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .category-button:hover {
-  background-color: currentColor;
-  color: white;
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+@media (max-width: 600px) {
+  .pokemon-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pokemon-card {
+    padding: 10px;
+  }
+
+  .category-button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
 }

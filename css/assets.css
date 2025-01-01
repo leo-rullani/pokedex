@@ -1,73 +1,93 @@
+.overlay {
+  display: none;
+}
+
 .highlight {
   border: 5px solid #212529;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.overlay {
+#pokemon-overlay {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.8); 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .overlay-content {
-  width: auto;
-  height: auto;
-  margin-top: auto;
-  border: 5px solid #212529;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.pokemon-display {
-  flex: 2;
+  background-color: #212529;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 3px solid #212529;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.pokemon-image {
-  z-index: 1;
-  width: 300px;
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.pokemon-image:hover {
-  transform: scale(1.1);
-}
-
-.pokemon-info {
-  position: relative;
-  flex: 3;
   padding: 20px;
-  background-color: #F8F9FA;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 500px; 
+  max-height: 90%; 
+  overflow: hidden; 
   text-align: center;
 }
 
+
+.overlay-content img {
+  max-width: 50%; 
+  height: auto;
+  margin-bottom: 15px; 
+}
+
+.overlay-content h2 {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.category-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-button.active {
+  background-color: #f8f9fa;
+  color: #212529;
+  border: 2px solid #212529;
+}
+
+.category-button:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+.content-section {
+  margin-top: 10px 0;
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
 .close-button {
+  position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #E04D59;
+  background-color: #e04d59;
   color: white;
   border: none;
   border-radius: 50%;
@@ -81,24 +101,59 @@
 }
 
 .close-button:hover {
-  background-color: #BE414C;
+  background-color: #be414c;
 }
 
+/* Stat-Balken */
+.stat-bar {
+  margin: 10px 0;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  background-color: #262A2F;
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white; 
+  text-align: center;
+}
+
+.stat-bar span {
+  position: relative;
+  z-index: 1; 
+  margin: 0 5px; 
+}
+
+.stat-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--stat-value, 50%);
+  background-color: var(--stat-color, #CCCCCC);
+  z-index: 0;
+  border-radius: 5px;
+}
+
+/* Kategorie-Buttons */
 .category-buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .category-button {
-  background-color: #E04D59;
-  color: white;
+  padding: 10px 15px;
+  background-color: white;
+  color: #E04D59;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
   cursor: pointer;
-  font-size: 1rem;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
@@ -108,86 +163,73 @@
 }
 
 .category-content {
+  color: white;
+  font-weight: 500;
   width: 100%;
-  max-width: 500px;
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #FFF;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 10px; /* Abstand nach oben */
+  margin-bottom: 10px; /* Abstand nach unten */
 }
 
 .content-section {
   display: none;
-  margin-top: 20px;
 }
 
-.stat-bar {
+.content-section.active {
+  display: block;
+}
+
+.evo-chain {
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  margin: 5px 0;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  height: 30px;
-  width: 100%;
-  position: relative;
-  font-size: 0.9rem;
-  font-weight: bold;
-  padding-left: 10px;
+  gap: 10px;
 }
 
-.stat-bar::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: var(--stat-value);
-  background-color: var(--stat-color);
-  z-index: 0;
-  border-radius: 5px;
-}
-
-.stat-bar > span {
-  position: relative;
-  z-index: 1;
-}
-
-.stat-name {
-  flex: 1;
-}
-
-.stat-value {
-  margin-left: auto;
-  padding-right: 10px;
-}
-
-.stat-bar span {
-  position: relative;
-  z-index: 1;
-}
-
-.evo-images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+.evo-stage {
+  text-align: center;
 }
 
 .evo-stage img {
-  width: 80px;
-  height: 80px;
-  border: 2px solid #ddd;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  border: 2px solid var(--type-border-color, #ddd); 
   border-radius: 10px;
+  margin-bottom: 5px;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.evo-stage.current img {
-  border-color: #1A8755;
+.evo-stage img:hover {
   transform: scale(1.1);
+  border-color: var(--type-border-color-hover, #bbb); 
 }
 
-.spinner-btn {
-  display: none;
+.evo-stage p {
+  margin: 0;
+  font-weight: bold;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.evo-arrow {
+  display: flex;
+  align-items: center;
+}
+
+.evo-arrow svg {
+  fill: white;
+  width: 30px;
+  height: 30px;
+}
+
+.stage-1, .stage-2, .stage-3 {
+  flex: 1; 
+}
+
+.type-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
 }
