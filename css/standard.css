@@ -5,6 +5,9 @@ body {
   font-family: "Fira Sans", sans-serif;
   background-color: #F8F9FA;
   scroll-behavior: smooth;
+  background: #f8f9fa; /* Hintergrundfarbe zur Unterscheidung */
+  transition: background 0.3s ease;
+  background: #e9ecef; /* Hintergrundfarbe während des Overlays */
 }
 
 h1 {
@@ -58,18 +61,6 @@ h2 {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 800px) {
-  .pokemon-row {
-    grid-template-columns: repeat(3, 1fr); 
-  }
-}
-
-@media (max-width: 500px) {
-  .pokemon-row {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
-
 .pokemon-name {
   font-size: 1.2rem;
   font-weight: bold;
@@ -100,18 +91,9 @@ h2 {
   color: #f8f9fa;
 }
 
-@media (max-width: 600px) {
-  .pokemon-card img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .pokemon-card {
-    padding: 10px;
-  }
-
-  .category-button {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-  }
+.no-scroll {
+  overflow: hidden;
+  height: 100%; /* Verhindert, dass der Hintergrund scrollbar bleibt */
+  position: fixed; /* Fixiert den Hintergrund */
+  width: 100%; /* Verhindert horizontales Scrollen */
 }

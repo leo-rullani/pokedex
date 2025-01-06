@@ -39,3 +39,17 @@ async function fetchEvolutionChain(chainUrl) {
   }
   return response.json();
 }
+
+async function fetchAndSortPokemonList(offset = 0, limit = 20) {
+  const pokemonList = await fetchPokemonList(offset, limit);
+
+  // Sortiere die Liste nach ID
+  const sortedPokemonList = await Promise.all(
+    pokemonList.map(async (pokemon) => {
+      const data = await fetchPokemonData(pokemon.name);
+      return { id: data.id, name: data.name, url: pokemon.url };
+    })
+  );
+
+  return sortedPokemonList.sort((a, b) => a.id - b.id); // Sortiere nach ID
+}

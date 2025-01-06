@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", init);
+
 async function init() {
   const container = document.getElementById("pokemon-container");
   const loadMoreButton = document.getElementById("load-more-button");
@@ -7,52 +9,48 @@ async function init() {
 
   async function loadPokemon() {
     try {
-      const pokemonList = await fetchPokemonList(offset, limit);
-      processPokemonList(pokemonList);
+      const sortedPokemonList = await fetchAndSortPokemonList(offset, limit);
+      await processPokemonList(sortedPokemonList, offset);
       offset += limit;
     } catch (error) {
-      handleLoadError(error);
+      console.error("Fehler beim Laden der Pokémon:", error);
     }
   }
-  
-  function processPokemonList(pokemonList) {
-    for (const pokemon of pokemonList) {
-      if (isDuplicatePokemon(pokemon.name)) {
-        continue;
+
+  async function processPokemonList(pokemonList, startIndex) {
+    for (let i = 0; i < pokemonList.length; i++) {
+      const pokemon = pokemonList[i];
+      if (!isDuplicatePokemon(pokemon.name)) {
+        await loadPokemonData(pokemon.name, startIndex + i);
       }
-      loadPokemonData(pokemon.name);
     }
   }
-  
+
   function isDuplicatePokemon(pokemonName) {
     return loadedPokemonNames.has(pokemonName.toLowerCase());
   }
-  
-  async function loadPokemonData(pokemonName) {
+
+  async function loadPokemonData(pokemonName, orderIndex) {
     try {
       const data = await fetchPokemonData(pokemonName);
-      addPokemonCard(data);
+      addPokemonCard(data, orderIndex);
       loadedPokemonNames.add(pokemonName.toLowerCase());
     } catch (error) {
       console.error(`Fehler beim Laden der Daten für ${pokemonName}:`, error);
     }
   }
-  
-  function addPokemonCard(data) {
+
+  function addPokemonCard(data, orderIndex) {
     const card = createPokemonCard(data);
     if (card) {
-      container.appendChild(card);
+      container.insertBefore(card, container.children[orderIndex] || null);
     }
   }
-  
-  function handleLoadError(error) {
-    console.error("Fehler beim Laden der Pokémon:", error);
-  }  
 
-  // Button-Klick zum Laden weiterer Pokémon
+  // Button-Event für das Laden weiterer Pokémon
   loadMoreButton.addEventListener("click", loadPokemon);
 
-  // Initiales Laden von Pokémon
+  // Initiales Laden der Pokémon
   loadPokemon();
 }
 
@@ -64,7 +62,9 @@ function createPokemonCard(data) {
 }
 
 function isCardExisting(name) {
-  return document.querySelector(`.pokemon-card[data-name="${name.toLowerCase()}"]`);
+  return document.querySelector(
+    `.pokemon-card[data-name="${name.toLowerCase()}"]`
+  );
 }
 
 function buildCardElement(data) {
@@ -110,23 +110,43 @@ function showPokemonOverlay(data) {
     console.error("Overlay element not found!");
     return;
   }
-  populateOverlayDetails(data);
-  overlay.style.display = "flex"; 
+
+  populateOverlayDetails(data); // Details des Overlays setzen
+  overlay.style.display = "flex"; // Overlay sichtbar machen
+  blockScroll(true); // Scrollen blockieren
+  addOverlayEventListeners(); // Event-Listener für Schließen hinzufügen
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function closeOverlay() {
   const overlay = document.getElementById("pokemon-overlay");
-  overlay.style.display = "none"; // Overlay initial ausblenden
-});
+  if (overlay) {
+    overlay.style.display = "none";
+    blockScroll(false); // Scrollen wieder aktivieren
+  }
+}
 
+function blockScroll(shouldBlock) {
+  if (shouldBlock) {
+    document.body.style.overflow = "hidden"; // Scrollen deaktivieren
+    document.body.style.position = "fixed"; // Verhindert Scrollen
+    document.body.style.width = "100%"; // Verhindert horizontales Scrollen
+  } else {
+    document.body.style.overflow = ""; // Scrollen aktivieren
+    document.body.style.position = ""; // Zurücksetzen
+    document.body.style.width = ""; // Zurücksetzen
+  }
+}
 function populateOverlayDetails(data) {
   const typesWithIcons = generateTypeIcons(data.types);
   setOverlayTextContent(data, typesWithIcons);
-  document.getElementById("overlay-image").src = data.sprites.other["official-artwork"].front_default;
-  document.getElementById("stats-content").innerHTML = generateStatsHTML(data.stats);
-  applyStatColors(data); 
-  applyCategoryButtonColors(data); 
-  loadEvolutionChain(data.id); 
+  document.getElementById("overlay-image").src =
+    data.sprites.other["official-artwork"].front_default;
+  document.getElementById("stats-content").innerHTML = generateStatsHTML(
+    data.stats
+  );
+  applyStatColors(data);
+  applyCategoryButtonColors(data);
+  loadEvolutionChain(data.id);
 }
 
 function generateTypeIcons(types) {
@@ -138,8 +158,12 @@ function generateTypeIcons(types) {
 function setOverlayTextContent(data, typesWithIcons) {
   document.getElementById("overlay-name").innerText = data.name;
   document.getElementById("overlay-type").innerHTML = `Type: ${typesWithIcons}`;
-  document.getElementById("overlay-height").innerText = `Height: ${data.height / 10} m`;
-  document.getElementById("overlay-weight").innerText = `Weight: ${data.weight / 10} kg`;
+  document.getElementById("overlay-height").innerText = `Height: ${
+    data.height / 10
+  } m`;
+  document.getElementById("overlay-weight").innerText = `Weight: ${
+    data.weight / 10
+  } kg`;
 }
 
 function loadEvolutionChain(pokemonId) {
@@ -166,25 +190,10 @@ function addOverlayEventListeners() {
   closeButton.addEventListener("click", closeOverlay);
 }
 
-function closeOverlay() {
+document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("pokemon-overlay");
-  if (overlay) {
-    overlay.style.display = "none";
-  }
-}
-
-function showPokemonOverlay(data) {
-  const overlay = document.getElementById("pokemon-overlay");
-  if (!overlay) {
-    console.error("Overlay element not found!");
-    return;
-  }
-
-  populateOverlayDetails(data); // Details des Overlays setzen
-  overlay.style.display = "flex"; // Overlay sichtbar machen
-
-  addOverlayEventListeners(); // Event-Listener für Schließen hinzufügen
-}
+  overlay.style.display = "none"; // Overlay initial ausblenden
+});
 
 function applyDynamicColors(type) {
   const color = getTypeColor(type);
@@ -259,14 +268,6 @@ function handleOutsideClick(event) {
   }
 }
 
-function closeOverlay() {
-  const overlay = document.getElementById("pokemon-overlay");
-  if (overlay) {
-    overlay.style.display = "none";
-    overlay.removeEventListener("click", handleOutsideClick);
-  }
-}
-
 async function fillEvoChainSection(evoData) {
   const chainContainer = document.getElementById("evo-chain-content");
   if (!chainContainer) return;
@@ -293,7 +294,10 @@ async function generateEvolutionHTML(evoNames) {
         const data = await fetchPokemonData(name);
         return createEvolutionStageHTML(data);
       } catch (error) {
-        console.error(`Fehler beim Laden der Evolutionsdaten für ${name}:`, error);
+        console.error(
+          `Fehler beim Laden der Evolutionsdaten für ${name}:`,
+          error
+        );
         return `<div class="evo-stage"><p>${name}</p></div>`;
       }
     })
@@ -391,5 +395,3 @@ function createStatBarHTML(name, value, percentage, color) {
     </div>
   `;
 }
-
-document.addEventListener("DOMContentLoaded", init);
